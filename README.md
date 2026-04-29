@@ -1,1 +1,1 @@
-﻿# ![computer_graphics] (computer_graphics.md)
+﻿# ![computer_graphics](computer_graphics.md)
