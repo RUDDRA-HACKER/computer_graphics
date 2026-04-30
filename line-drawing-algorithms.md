@@ -98,52 +98,171 @@ Should we go RIGHT (E) or DIAGONAL (NE)?
 
   If pk < 0: choose E (x+1, y), and pk+1 = pk + 2dy
   If pk >= 0: choose NE (x+1, y+1), and pk+1 = pk + 2dy - 2dx
+pk+1 = pk + 2dy - 2dx
+= 0 + 8 - 16 = -8
+Step 1:
+p = -8 → < 0 → choose E
 
-3. **Mid-Point Line Algorithm**: This algorithm is similar to Bresenham's algorithm but uses a different decision parameter based on the midpoint between the two possible pixel choices. It also uses integer arithmetic for efficiency.
+👉 Move:
 
-🧮 Steps (for slope 0 < m < 1)
+(3,4) → (4,4)
+🧠 Pattern you saw
+0 → -8 → 0 → -8 → ...
 
-Given:
-(x1, y1) and (x2, y2)
+👉 That’s why:
 
-1. Calculate the differences:
-   - dx = x2 - x1
-   - dy = y2 - y1
+NE → E → NE → E → ...
 
-2. Initial decision parameter:
-   - d = 2dy - dx
+# Mid-Point Line Algorithm (Complete Notes)
 
-3. Start from (x, y) = (x1, y1). For each step, increment x by 1:
-   - If d < 0: choose E (x+1, y), and d_next = d + 2dy
-   - If d >= 0: choose NE (x+1, y+1), and d_next = d + 2dy - 2dx
+---
 
-4. Continue until x = x2
+# 🎯 Definition
 
-🧮 Example (for slope 0 < m < 1)
+The **Mid-Point Line Algorithm** is used to draw a straight line by selecting the pixel closest to the actual line using a decision parameter based on the midpoint between two possible pixels.
 
-Given:
-(x1, y1) = (2, 3) and (x2, y2) = (10, 7)
+---
 
-1. Calculate:
-   - dx = 10 - 2 = 8
-   - dy = 7 - 3 = 4
+# 🧠 Key Idea
 
-2. Initial decision parameter:
-   - d = 2(4) - 8 = 0
+At each step, we choose between:
 
-3. Start from (x, y) = (2, 3). For each step, increment x by 1:
+* **E (East)** → (x+1, y)
+* **NE (North-East)** → (x+1, y+1)
 
-| Step | d before choice | Pixel plotted | Choice | d(next) |
-|------|-----------------|---------------|--------|---------|
-| 0    | 0               | (2, 3)        | NE     | -8      |
-| 1    | -8              | (3, 4)        | E      | 0       |
-| 2    | 0               | (4, 4)        | NE     | -8      |
-| 3    | -8              | (5, 5)        | E      | 0       |
-| 4    | 0               | (6, 5)        | NE     | -8      |
-| 5    | -8              | (7, 6)        | E      | 0       |
-| 6    | 0               | (8, 6)        | NE     | -8      |
-| 7    | -8              | (9, 7)        | E      | 0       |
-| 8    | —               | (10, 7)       | End    | —       |
+Decision depends on a parameter **d**
 
-Final plotted points:
+---
+
+# 📌 Decision Parameter
+
+[
+d = 2dy - dx
+]
+
+---
+
+# 🎯 Decision Rule
+
+* If **d < 0** → choose **E**
+* If **d ≥ 0** → choose **NE**
+
+---
+
+# 🔁 Update Rules
+
+* If **E chosen**:
+
+  ```text
+  d = d + 2dy
+  ```
+
+* If **NE chosen**:
+
+  ```text
+  d = d + 2dy - 2dx
+  ```
+
+---
+
+# 📋 Algorithm Steps (0 < slope < 1)
+
+1. Input points (x1, y1) and (x2, y2)
+2. Calculate:
+
+   ```text
+   dx = x2 - x1
+   dy = y2 - y1
+   ```
+3. Initialize:
+
+   ```text
+   d = 2dy - dx
+   x = x1
+   y = y1
+   ```
+4. Plot starting point (x, y)
+5. Repeat until x = x2:
+
+   * If d < 0 → choose E
+   * If d ≥ 0 → choose NE
+6. Update d accordingly
+7. Plot each point
+
+---
+
+# 🔢 Example
+
+## Given:
+
+```text
+(x1, y1) = (2, 3)
+(x2, y2) = (10, 7)
+```
+
+---
+
+## Step 1: Calculate
+
+```text
+dx = 10 - 2 = 8
+dy = 7 - 3 = 4
+```
+
+---
+
+## Step 2: Initial value
+
+[
+d = 2(4) - 8 = 0
+]
+
+---
+
+# 📊 Iteration Table
+
+| Step | d before | Point  | Choice | d after |
+| ---- | -------- | ------ | ------ | ------- |
+| 0    | 0        | (2,3)  | NE     | -8      |
+| 1    | -8       | (3,4)  | E      | 0       |
+| 2    | 0        | (4,4)  | NE     | -8      |
+| 3    | -8       | (5,5)  | E      | 0       |
+| 4    | 0        | (6,5)  | NE     | -8      |
+| 5    | -8       | (7,6)  | E      | 0       |
+| 6    | 0        | (8,6)  | NE     | -8      |
+| 7    | -8       | (9,7)  | E      | 0       |
+| End  | —        | (10,7) | —      | —       |
+
+---
+
+# ✅ Final Points
+
+```text
 (2,3), (3,4), (4,4), (5,5), (6,5), (7,6), (8,6), (9,7), (10,7)
+```
+
+---
+
+# 🧠 Simple Understanding
+
+* d < 0 → move straight (E)
+* d ≥ 0 → move diagonal (NE)
+
+---
+
+# 🔥 Important Notes
+
+* Uses integer calculations (fast)
+* Avoids floating-point operations
+* Same output as Bresenham algorithm
+* Widely used in computer graphics
+
+---
+
+# 🎯 Summary
+
+```text
+Midpoint algorithm selects the best pixel using a decision parameter to approximate a straight line efficiently.
+```
+
+---

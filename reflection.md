@@ -108,7 +108,7 @@ So,
 $$
 C'(4,-3)
 $$
-![Reflection about X-axis and Y-axis](/image/reflection.png)
+![Reflection about X-axis and Y-axis](image/reflection.png)
 ### Final reflected triangle
 
 The reflected triangle after X-axis reflection is:
