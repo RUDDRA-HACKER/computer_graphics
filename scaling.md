@@ -45,7 +45,7 @@ To scale an object about a fixed point `(xf, yf)`, use:
 - Resizing images and objects
 - Changing model dimensions in CAD systems
 
-![Scaling_Example](/image/scaling.png)
+![Scaling_Example](image/scaling.png)
 Optimizing tool selection...## 2D Scaling Example
 
 **Given:**

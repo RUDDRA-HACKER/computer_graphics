@@ -96,8 +96,8 @@ for each vertex (x, y) in object:
 	x = x + tx
 	y = y + ty
 ```
-![Translation_Example](/image/translation.png)
-![Translation](/image/translation-1.png)
+![Translation_Example](image/translation.png)
+![Translation](image/translation-1.png)
 
 Using the same example from the board:
 

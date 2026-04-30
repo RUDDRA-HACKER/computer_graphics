@@ -11,9 +11,9 @@ An efficient algorithm to draw a circle using integer calculations and symmetry.
 
 ## Circle Equation
 
-[
+$$
 x^2 + y^2 = r^2
-]
+$$
 
 ---
 
@@ -294,19 +294,19 @@ Apply symmetry to get full ellipse.
    - Recursively apply the same process to the neighboring pixels (up, down, left, right).  
 
 
-![Boundary_Fill_Algorithm](/image/Boundry-1.png)
+![Boundary_Fill_Algorithm](image/Boundry-2.png)
 
 Image 1 (Boundary-1.png):
 This shows the starting point of the boundary fill algorithm. There's a closed shape (boundary) drawn on the screen, and a seed point is selected inside the area that needs to be filled.
-![Boundary_Fill_Algorithm](/image/Boundry-2.png)
+![Boundary_Fill_Algorithm](image/Boundry-2.png)
 Image 2 (Boundary-2.png):
 The algorithm begins filling from the seed point. It checks neighboring pixels and fills those that are not the boundary color. The fill starts expanding outward in the adjacent areas.
 
-![Boundary_Fill_Algorithm](/image/Boundry-3.png)
+![Boundary_Fill_Algorithm](image/Boundry-3.png)
 
 Image 3 (Boundary-3.png):
 The filling continues to spread to more neighboring pixels. The algorithm recursively fills all connected pixels that meet the fill criteria (not boundary color, not already filled).
-![Boundary_Fill_Algorithm](/image/Boundry-4.png)
+![Boundary_Fill_Algorithm](image/Boundry-4.png)
 Image 4 (Boundary-4.png):
 The filling is complete. The entire area inside the boundary has been filled with the fill color. The algorithm stops when it encounters the boundary, ensuring the fill stays within the defined shape.
 
@@ -335,7 +335,7 @@ Visual representation:
 
 *When in a boundary fill with multiple colour then it will not work properly because it will stop filling when it encounters a different colour which is not the boundary colour. In contrast, the flood fill algorithm will continue to fill all connected pixels regardless of their color, as long as they are not the boundary color. This makes the flood fill algorithm more robust and effective in scenarios where there are multiple colors within the area to be filled.*
 
-![Flood_Fill_Algorithm](/image/flood_fill.png)
+![Flood_Fill_Algorithm](image/flood_fill.png)
 
 I will map the whiteboard exactly into simple step-by-step algorithm steps for both 4-connected and 8-connected flood fill, including the order shown in the photo.According to the photo, these are the complete steps of Flood Fill.
 

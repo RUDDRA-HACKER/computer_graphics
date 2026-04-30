@@ -322,8 +322,8 @@ DISPLAY   → Show image
 ```
 xwmin ─────────────── xwmax
   │                     │
-  │   VISIBLE AREA     │
-  │   (Inside window)  │
+  │   VISIBLE AREA      │
+  │   (Inside window)   │
   │                     │
 ywmin ─────────────── ymax
 ```
@@ -377,9 +377,9 @@ Case 1: Entire line inside  → Keep entire line
 Case 2: Entire line outside → Discard entire line
         
 Case 3: Line crosses window → Keep only inside part
-        ─────┃━━━━━┃─────
-        Keep  ┃      ┃
-              └──────┘
+        ─────┃━━━ ━━┃─────
+        Keep ┃      ┃
+             └──────┘
 ```
 
 **Algorithms:**
@@ -392,7 +392,7 @@ Case 3: Line crosses window → Keep only inside part
         1001  1000  1010
           │     │      │
         ──┼─────┼──────┼──
-        0001│ 0000│ 0010│
+      0001| 0000│  0010│
         ──┼─────┼──────┼──
           │     │      │
         0101  0100  0110
@@ -467,13 +467,13 @@ Result: Clipped polygon
 **Example:**
 ```
 Original Polygon:     After Clipping:
-    A                     A'
+    A                      A'
    ╱ ╲                    ╱ ╲
   ╱   ╲                  ╱   ╲
  B─────C    Window     B'─────C'
-  ╲   ╱    ┌─────┐      ╲   ╱
-   ╲ ╱     │     │       ╲ ╱
-    D      └─────┘        D'
+  ╲   ╱    ┌─────┐       ╲   ╱
+   ╲ ╱     │     │        ╲ ╱
+    D      └─────┘         D'
 ```
 
 ---
